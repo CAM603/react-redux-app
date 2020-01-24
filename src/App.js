@@ -9,10 +9,6 @@ import Pokemon from './components/Pokemon';
 
 
 function App(props) {
-  
-  useEffect(() => {
-    props.fetchData(props.page)
-  },[props.page])
 
   return (
     <div className="App">

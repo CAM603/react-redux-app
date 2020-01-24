@@ -3,7 +3,7 @@ import { FETCHING_POKEMON_START, FETCHING_POKEMON_SUCCESS, FETCHING_POKEMON_FAIL
 const initialState = {
     loading: false,
     error: '',
-    pokemon: []
+    name: ''
 }
 
 export const fetchPokemon = (state = initialState, action) => {
@@ -18,7 +18,7 @@ export const fetchPokemon = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                pokemon: action.payload
+                name: action.payload
             }
         case FETCHING_POKEMON_FAILURE:
             return {

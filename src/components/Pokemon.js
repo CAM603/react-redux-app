@@ -9,7 +9,7 @@ const Pokemon = (props) => {
     
     useEffect(() => {
         props.fetchPokemon(id)
-    }, [])
+    }, [id])
 
     return (
         <div>
@@ -23,7 +23,7 @@ const Pokemon = (props) => {
 
 const mapStateToProps = state => {
     return {
-        name: state.fetchPokemon.pokemon.name
+        name: state.fetchPokemon.name
     }
 }
 
