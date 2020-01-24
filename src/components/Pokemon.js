@@ -13,7 +13,14 @@ const Pokemon = (props) => {
 
     return (
         <div>
-            <button>{props.name}</button>
+            <p>{props.name}</p>
+            <p>Type: {props.types.map(el => <p>{el.type.name}</p>)}</p>
+            <p>Height: {props.height}</p>
+            <p>Weight: {props.weight}</p>
+            <img src={props.pic}/>
+            {props.moves.map(el => (
+                <p key={el.move.url}>{el.move.name}</p>
+            ))}
             <Link to="/">
                 <button>Back</button>
             </Link>
@@ -23,7 +30,12 @@ const Pokemon = (props) => {
 
 const mapStateToProps = state => {
     return {
-        name: state.fetchPokemon.name
+        name: state.fetchPokemon.name,
+        moves: state.fetchPokemon.moves,
+        pic: state.fetchPokemon.pic,
+        types: state.fetchPokemon.types,
+        height: state.fetchPokemon.height,
+        weight: state.fetchPokemon.weight
     }
 }
 

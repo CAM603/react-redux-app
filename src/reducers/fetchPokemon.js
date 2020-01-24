@@ -3,7 +3,13 @@ import { FETCHING_POKEMON_START, FETCHING_POKEMON_SUCCESS, FETCHING_POKEMON_FAIL
 const initialState = {
     loading: false,
     error: '',
-    name: ''
+    name: '',
+    moves: [],
+    pic: '',
+    types: [],
+    height: '',
+    weight: '',
+    data: []
 }
 
 export const fetchPokemon = (state = initialState, action) => {
@@ -18,7 +24,13 @@ export const fetchPokemon = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                name: action.payload
+                name: action.payload.name,
+                moves: action.payload.moves,
+                pic: action.payload.sprites.front_default,
+                types: action.payload.types,
+                height: action.payload.height,
+                weight: action.payload.weight,
+                data: action.payload
             }
         case FETCHING_POKEMON_FAILURE:
             return {
