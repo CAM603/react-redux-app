@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Route } from 'react-router';
 
-import { fetchData } from './actions/fetchAction'
 import './App.css';
+import { fetchData } from './actions/fetchAction'
 import PokemonList from './components/PokemonList';
+import Pokemon from './components/Pokemon';
 
 
 function App(props) {
@@ -14,7 +16,12 @@ function App(props) {
 
   return (
     <div className="App">
-      <PokemonList />
+      <Route exact path="/">
+        <PokemonList />
+      </Route>
+      <Route path="/:id">
+        <Pokemon />
+      </Route>
     </div>
   );
 }
