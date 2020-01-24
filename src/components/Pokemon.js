@@ -2,25 +2,29 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPokemon } from '../actions/fetchPokemon';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Pokemon = (props) => {
     const { id } = useParams()
-    console.log(id)
+    
     useEffect(() => {
         props.fetchPokemon(id)
     }, [])
 
     return (
         <div>
-            <button>Hi</button>
+            <button>{props.name}</button>
+            <Link to="/">
+                <button>Back</button>
+            </Link>
         </div>
     )
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         name: state.fetchPokemon.name
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        name: state.fetchPokemon.pokemon.name
+    }
+}
 
-export default connect(null,{fetchPokemon})(Pokemon);
+export default connect(mapStateToProps,{fetchPokemon})(Pokemon);

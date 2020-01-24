@@ -1,10 +1,9 @@
 import { FETCHING_POKEMON_START, FETCHING_POKEMON_SUCCESS, FETCHING_POKEMON_FAILURE } from "../actions/fetchPokemon"
 
 const initialState = {
-    name: 'hi',
     loading: false,
     error: '',
-    pokemon: [],
+    pokemon: []
 }
 
 export const fetchPokemon = (state = initialState, action) => {

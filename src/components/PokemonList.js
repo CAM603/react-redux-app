@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const PokemonList = (props) => {
 
 const mapStateToProps = state => {
     return {
-        data: state.fetchReducer.data
+        data: state.fetchReducer.data,
     }
 }
 export default connect(mapStateToProps,{nextPage, prevPage})(PokemonList);
