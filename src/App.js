@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 
 import { fetchData } from './actions/fetchAction'
-import { nextPage, prevPage } from './actions/pageAction';
 import './App.css';
+import PokemonList from './components/PokemonList';
 
 
 function App(props) {
@@ -12,20 +12,9 @@ function App(props) {
     props.fetchData(props.page)
   },[props.page])
 
-  const nextPage = () => {
-    props.nextPage()
-  }
-  const prevPage = () => {
-    props.prevPage()
-  }
-
   return (
     <div className="App">
-      <button onClick={nextPage}>next</button>
-      <button onClick={prevPage}>prev</button>
-      {props.data.map(el => (
-        <h3>{el.name}</h3>
-      ))}
+      <PokemonList />
     </div>
   );
 }
@@ -38,4 +27,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchData, nextPage, prevPage})(App);
+export default connect(mapStateToProps, {fetchData})(App);
