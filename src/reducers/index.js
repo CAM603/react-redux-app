@@ -1,32 +1,11 @@
-import { FETCHING_START } from '../actions'
+import { combineReducers } from 'redux';
 
-const initialState = {
-    loading: false,
-    error: '',
-    data: null
-}
+import { fetchReducer } from './fetchReducer';
+import { pageReducer } from './pageReducer';
 
-export const reducer = (state = initialState, action) => {
-    switch(action.type) {
-        case FETCHING_START:
-            return {
-                ...state,
-                loading: true,
-                error: ''
-            }
-        // case FETCHING_SUCCESS:
-        //     return {
-        //         ...state,
-        //         loading: false,
-        //         data: action.payload
-        //     }
-        // case FETCHING_FAILURE:
-        //     return {
-        //         ...state,
-        //         error: action.payload,
-        //         loading: false
-        //     }
-        default:
-            return state
-    }
-}
+const rootReducer = combineReducers({
+    fetchReducer,
+    pageReducer
+})
+
+export default rootReducer;
